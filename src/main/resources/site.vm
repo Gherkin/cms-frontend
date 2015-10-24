@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h1>n[got fint</h1>
+        <h1>nogot fint</h1>
         <ul>
            #foreach($article in $articles)
             <li>$article</li>
