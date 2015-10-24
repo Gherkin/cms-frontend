@@ -2,10 +2,10 @@
 <html>
     <body>
         <h1>nogot fint</h1>
-        <ul>
+        <div style="width: 600px">
            #foreach($article in $articles)
-            <li>$article</li>
+               #parse("article.vm")
            #end
-    </ul>
+        </div>
     </body>
 </html>

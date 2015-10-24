@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class FrontServlet extends javax.servlet.http.HttpServlet {
@@ -36,5 +37,5 @@ public class FrontServlet extends javax.servlet.http.HttpServlet {
         template.merge(context, resp.getWriter());
     }
 
-    public static class ContentList extends ArrayList<String> {}
+    public static class ContentList extends ArrayList<HashMap<String, String>> {}
 }
