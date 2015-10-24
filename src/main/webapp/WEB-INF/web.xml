@@ -1,0 +1,15 @@
+<web-app>
+    <listener>
+        <listener-class>com.github.gherkin.FrontListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>FrontServlet</servlet-name>
+        <servlet-class>com.github.gherkin.FrontServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FrontServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+</web-app>
+
