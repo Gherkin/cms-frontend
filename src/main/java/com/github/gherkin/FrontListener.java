@@ -10,11 +10,17 @@ import javax.servlet.ServletContextListener;
 
 public class FrontListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent servletContextEvent) {
+        initVelocity();
+        CMClient cmClient = new CMClient();
+        servletContextEvent.getServletContext().setAttribute("cmClient", cmClient);
+
+    }
+
+    private void initVelocity() {
         Velocity.setProperty("resource.loader", "class");
         Velocity.setProperty(RuntimeConstants.RUNTIME_LOG_LOGSYSTEM_CLASS, NullLogChute.class.getName());
         Velocity.setProperty("class.resource.loader.class", ClasspathResourceLoader.class.getName());
         Velocity.init();
-
     }
 
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
