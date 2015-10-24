@@ -1,1 +1,11 @@
-hello $name
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>n[got fint</h1>
+        <ul>
+           #foreach($article in $articles)
+            <li>$article</li>
+           #end
+    </ul>
+    </body>
+</html>
