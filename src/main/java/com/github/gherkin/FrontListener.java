@@ -7,12 +7,19 @@ import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FrontListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         initVelocity();
-        CMClient cmClient = new CMClient();
+        CachingCMClient cmClient = new CachingCMClient();
         servletContextEvent.getServletContext().setAttribute("cmClient", cmClient);
+
+        Map<String, Content> cache = Collections.synchronizedMap(new HashMap<>());
+
+        CacheManager cacheManager = new CacheManager(cache, cmClient);
 
     }
 

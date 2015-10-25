@@ -16,18 +16,18 @@ public class CMClient {
     public List<Content> getArticles() throws IOException {
         Gson gson = new Gson();
 
-        Content page = getContent(1);
+        Content page = getContent("1");
 
         List<Content> articles = new ArrayList<Content>();
         for(String str : page.get("articles").split(",")) {
-            articles.add(getContent(Integer.parseInt(str)));
+            articles.add(getContent(str));
         }
 
         return articles;
     }
 
-    private Content getContent(int id) {
-        String url = String.format("http://192.168.122.82:8080/cms-backend/content/%d", id);
+    Content getContent(String id) {
+        String url = String.format("http://192.168.122.82:8080/cms-backend/content/%s", id);
 
         try (InputStream inputStream = new URL(url).openStream()) {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
