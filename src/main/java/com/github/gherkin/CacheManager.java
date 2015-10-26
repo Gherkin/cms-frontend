@@ -1,32 +1,47 @@
 package com.github.gherkin;
 
-import java.util.HashMap;
-import java.util.Iterator;
+import com.google.gson.Gson;
+import com.google.inject.Inject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Executor;
 
 public class CacheManager implements Runnable {
 
-    private Map<String, Content> cache;
+    @Inject
+    Cache cache;
+    private ChangeLog changeLog;
     private CMClient cmClient;
+    private final Gson GSON = new Gson();
 
     public CacheManager(Map<String, Content> cache, CMClient cmClient) {
-        this.cache = cache;
         this.cmClient = cmClient;
+        changeLog = new ChangeLog();
     }
 
     @Override
     public void run() {
-        Iterator<Content> iterator = cache.values().iterator();
-        while(iterator.hasNext()) {
-            Content content = iterator.next();
-            String version = cmClient.getContent(content.get("id")).get("version");
-            if(content.get("version") != version) {
-                iterator.remove();
-                cache.put()
-            }
+        String url = String.format("http://192.168.122.82:8080/cms-backend/content/changelog/%s", changeLog.size());
 
+        try(InputStream inputStream = new URL(url).openStream()) {
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+
+            ChangeLog serverLog = GSON.fromJson(inputStreamReader, ChangeLog.class);
+            for(String id : serverLog) {
+                Content content = cmClient.getContent(id);
+                cache.put(id, content);
+                changeLog.add(id);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
     }
+
+
 }

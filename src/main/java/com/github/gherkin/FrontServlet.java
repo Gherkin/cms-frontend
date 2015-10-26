@@ -1,6 +1,6 @@
 package com.github.gherkin;
 
-import com.google.gson.Gson;
+import com.google.inject.Inject;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;

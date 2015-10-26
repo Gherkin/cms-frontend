@@ -1,6 +1,7 @@
 package com.github.gherkin;
 
 import com.google.gson.Gson;
+import com.google.inject.Inject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CMClient {
+
+    @Inject
+    Cache cache;
 
     private final Gson GSON = new Gson();
 

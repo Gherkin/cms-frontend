@@ -1,14 +1,11 @@
 package com.github.gherkin;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.google.inject.Inject;
 
 public class CachingCMClient extends CMClient {
 
-    private Map<String, Content> cache = new HashMap<>();
+    @Inject
+    Cache cache;
 
     @Override
     Content getContent(String id) {

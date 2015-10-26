@@ -1,33 +1,21 @@
 package com.github.gherkin;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Cache {
-    private final Map<Integer, Content> contentCache = new HashMap<>();
-    private final Object[] mutex = new Object[0];
+    private static Map<String, Content> cache = Collections.synchronizedMap(new HashMap<String, Content>());
 
-    public void put(Integer id, Content content) {
-        synchronized(mutex) {
-            contentCache.put(id, content);
-        }
+    public Content get(String key) {
+        return cache.get(key);
     }
 
-    public void remove(Integer id, Content content) {
-        synchronized(mutex) {
-            contentCache.remove(id, content);
-        }
+    public void put(String key, Content value) {
+        cache.put(key, value);
     }
 
-    public Content get(Integer id) {
-        synchronized(mutex) {
-            return contentCache.get(id);
-        }
-    }
-
-    public boolean containsKey(Integer id) {
-        synchronized(mutex) {
-            return contentCache.containsKey(id);
-        }
+    public boolean containsKey(String key) {
+        return cache.containsKey(key);
     }
 }

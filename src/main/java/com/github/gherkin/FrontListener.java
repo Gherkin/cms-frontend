@@ -10,6 +10,10 @@ import javax.servlet.ServletContextListener;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class FrontListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent servletContextEvent) {
@@ -20,7 +24,8 @@ public class FrontListener implements ServletContextListener {
         Map<String, Content> cache = Collections.synchronizedMap(new HashMap<>());
 
         CacheManager cacheManager = new CacheManager(cache, cmClient);
-
+        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
+        executorService.schedule(cacheManager, 1, TimeUnit.SECONDS);
     }
 
     private void initVelocity() {
