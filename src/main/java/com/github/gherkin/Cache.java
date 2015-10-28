@@ -1,11 +1,18 @@
 package com.github.gherkin;
 
+import com.google.inject.Singleton;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+@Singleton
 public class Cache {
-    private static Map<String, Content> cache = Collections.synchronizedMap(new HashMap<String, Content>());
+    private Map<String, Content> cache;// = Collections.synchronizedMap(new HashMap<String, Content>();
+
+    public Cache() {
+        cache = new HashMap<>();
+    }
 
     public Content get(String key) {
         return cache.get(key);

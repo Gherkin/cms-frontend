@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class FrontListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         initVelocity();
-        CachingCMClient cmClient = new CachingCMClient();
+        CMClient cmClient = new CMClient();
         servletContextEvent.getServletContext().setAttribute("cmClient", cmClient);
 
         Map<String, Content> cache = Collections.synchronizedMap(new HashMap<>());

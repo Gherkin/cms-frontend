@@ -35,4 +35,7 @@ public class FrontServlet extends javax.servlet.http.HttpServlet {
         template.merge(context, resp.getWriter());
     }
 
+    public void SetCMClient(CMClient cmClient) {
+        this.cmClient = cmClient;
+    }
 }
