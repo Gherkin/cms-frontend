@@ -1,6 +1,6 @@
 package com.github.gherkin;
 
-import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 
 import java.util.List;
 
+@Singleton
 public class FrontServlet extends javax.servlet.http.HttpServlet {
 
     private CMClient cmClient;
@@ -34,4 +35,7 @@ public class FrontServlet extends javax.servlet.http.HttpServlet {
         template.merge(context, resp.getWriter());
     }
 
+    public void SetCMClient(CMClient cmClient) {
+        this.cmClient = cmClient;
+    }
 }
