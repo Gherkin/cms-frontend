@@ -12,5 +12,8 @@
     <listener>
         <listener-class>com.github.gherkin.ServletConfig</listener-class>
     </listener>
+    <listener>
+        <listener-class>com.github.gherkin.FrontListener</listener-class>
+    </listener>
 </web-app>
 

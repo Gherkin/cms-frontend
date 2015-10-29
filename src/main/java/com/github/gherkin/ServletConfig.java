@@ -18,18 +18,18 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class ServletConfig extends GuiceServletContextListener {
-    @Override
-    public void contextInitialized(ServletContextEvent servletContextEvent) {
-        initVelocity();
-        CMClient cmClient = new CMClient();
-        servletContextEvent.getServletContext().setAttribute("cmClient", cmClient);
-
-        Map<String, Content> cache = Collections.synchronizedMap(new HashMap<>());
-
-        CacheManager cacheManager = new CacheManager(cache, cmClient);
-        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
-        executorService.schedule(cacheManager, 1, TimeUnit.SECONDS);
-    }
+//    @Override
+//    public void contextInitialized(ServletContextEvent servletContextEvent) {
+//        initVelocity();
+//        CMClient cmClient = new CMClient();
+//        servletContextEvent.getServletContext().setAttribute("cmClient", cmClient);
+//
+//        Map<String, Content> cache = Collections.synchronizedMap(new HashMap<>());
+//
+//        CacheManager cacheManager = new CacheManager(cache, cmClient);
+//        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
+//        executorService.schedule(cacheManager, 1, TimeUnit.SECONDS);
+//    }
 
     private void initVelocity() {
         Velocity.setProperty("resource.loader", "class");
