@@ -1,4 +1,4 @@
-package com.github.gherkin;
+package com.github.gherkin.content;
 
 import java.util.HashMap;
 
