@@ -1,5 +1,6 @@
 package com.github.gherkin;
 
+import com.github.gherkin.content.Content;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.log.NullLogChute;
@@ -10,7 +11,6 @@ import javax.servlet.ServletContextListener;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;

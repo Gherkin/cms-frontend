@@ -1,8 +1,8 @@
 package com.github.gherkin;
 
+import com.github.gherkin.content.Content;
 import com.google.inject.Singleton;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 

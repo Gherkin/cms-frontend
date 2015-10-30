@@ -1,7 +1,6 @@
 package com.github.gherkin;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
+import com.github.gherkin.content.Content;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

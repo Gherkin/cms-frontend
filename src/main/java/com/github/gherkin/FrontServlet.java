@@ -1,5 +1,6 @@
 package com.github.gherkin;
 
+import com.github.gherkin.content.Content;
 import com.google.inject.Singleton;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;

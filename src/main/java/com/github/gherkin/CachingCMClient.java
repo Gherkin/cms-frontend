@@ -1,5 +1,6 @@
 package com.github.gherkin;
 
+import com.github.gherkin.content.Content;
 import com.google.inject.Inject;
 
 public class CachingCMClient extends CMClient {

@@ -110,7 +110,7 @@
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>1.0.2.Final</version>
                 <configuration>
-                    <hostname>192.168.122.82</hostname>
+                    <hostname>127.0.0.1</hostname>
                     <id>TomcatServer</id>
                 </configuration>
             </plugin>

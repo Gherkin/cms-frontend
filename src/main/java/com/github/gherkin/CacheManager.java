@@ -1,5 +1,6 @@
 package com.github.gherkin;
 
+import com.github.gherkin.content.Content;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 
@@ -26,7 +27,7 @@ public class CacheManager implements Runnable {
 
     @Override
     public void run() {
-        String url = String.format("http://192.168.122.82:8080/cms-backend/content/changelog/%s", changeLog.size());
+        String url = String.format("http://127.0.0.1:8080/cms-backend/content/changelog/%s", changeLog.size());
 
         try(InputStream inputStream = new URL(url).openStream()) {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
